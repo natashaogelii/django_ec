@@ -3,7 +3,7 @@ from .models import Product, Category
 from .forms import ProductForm, CategoryForm
 
 def home(request):
-    return render(request, "home.html")
+    return render(request, "products/home.html")
 
 def add_category(request):
     if request.method == 'POST':
@@ -27,6 +27,6 @@ def add_product(request):
         form = ProductForm()
     return render(request,"products/product_form.html",{'form':form})
 
-def getall(request):
-    category = Category.objects.all()
-    return render(request,"product/category_list.html",{'category':category})
+def category_list(request):
+    categories = Category.objects.all()
+    return render(request,"products/category_list.html",{'categories':categories})
