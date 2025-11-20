@@ -1,0 +1,13 @@
+<h1>{{ product.name }}</h1>
+
+<p><strong>Category:</strong> {{ product.category.name }}</p>
+<p><strong>Price:</strong> ${{ product.price }}</p>
+
+{% if product.image %}
+  <img src="{{ product.image.url }}" width="400">
+{% endif %}
+
+<p><strong>Description:</strong></p>
+<p>{{ product.description|linebreaks }}</p>
+
+<a href="{% url 'products:products_list' %}">Back to Products</a>
